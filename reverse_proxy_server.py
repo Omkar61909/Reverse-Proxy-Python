@@ -5,7 +5,8 @@ hostName = "localhost"
 serverPort = 8080
 
 class   (BaseHTTPRequestHandler):
-
+    """In the following code we will insert headers in the request received by reverse_proxy 
+    """
     
     def inject_auth(self, headers):
         headers['Authorizaion'] = 'Bearer secret'
