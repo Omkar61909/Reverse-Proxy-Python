@@ -4,7 +4,7 @@ import time
 hostName = "localhost"
 serverPort = 8080
 
-class   (BaseHTTPRequestHandler):
+class MyServer(BaseHTTPRequestHandler):
     """In the following code we will insert headers in the request received by reverse_proxy 
     """
     
@@ -32,7 +32,7 @@ class   (BaseHTTPRequestHandler):
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
 if __name__ == "__main__":        
-    webServer = HTTPServer((hostName, serverPort),  )
+    webServer = HTTPServer((hostName, serverPort), MyServer)
     print("Server started http://%s:%s" % (hostName, serverPort))
 
     try:
